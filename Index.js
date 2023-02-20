@@ -40,3 +40,10 @@ search.addEventListener('keyup', function () {
     const term = search.value.trim();
     filterTodos(term)
 })
+
+list.addEventListener('click', function (e) {          //whenever you click on list
+    if (e.target.classList.contains('delete')) {          //if clicked list conttains (delete: which trash icon)
+        e.target.parentElement.remove();                //Than remove parent element(le), you cant use this.remover();
+
+    }
+});
