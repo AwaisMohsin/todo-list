@@ -25,3 +25,18 @@ addForm.addEventListener('submit', function (e) {
     }
     e.target.reset();              //you can also use addForm.reset();
 });
+const filterTodos = function (term) {           // for filter
+    Array.from(list.children)
+        .filter((todo) => !todo.textContent.toLowerCase().includes(term))
+        .forEach((todo) => todo.classList.add('filtered'));
+
+    Array.from(list.children)
+        .filter((todo) => todo.textContent.toLowerCase().includes(term))
+        .forEach((todo) => todo.classList.remove('filtered'));
+
+};
+
+search.addEventListener('keyup', function () {
+    const term = search.value.trim();
+    filterTodos(term)
+})
